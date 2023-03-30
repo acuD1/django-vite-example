@@ -1,10 +1,15 @@
 .vscode
 .idea
 
-.venv
+.venv/
 node_modules
 *sqlite*
 
 static/dist
 
 __pycache__
+.jsenv/
+venv
+jsenv
+static
+dist

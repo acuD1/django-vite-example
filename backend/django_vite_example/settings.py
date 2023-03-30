@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django_vite_example.wsgi.application'
-
+print(BASE_DIR / "templates")
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -120,19 +120,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Where ViteJS assets are built.
-DJANGO_VITE_ASSETS_PATH = BASE_DIR / "static" / "dist"
+DJANGO_VITE_ASSETS_PATH = BASE_DIR.parent / "frontend" / "dist"
+DJANGO_VITE_MANIFEST_PATH = BASE_DIR.parent / "static" / "manifest.json"
+
+print(DJANGO_VITE_ASSETS_PATH)
+print(DJANGO_VITE_MANIFEST_PATH)
 
 # If use HMR or not.
-DJANGO_VITE_DEV_MODE = DEBUG
+# DJANGO_VITE_DEV_MODE = True
+DJANGO_VITE_DEV_MODE = False
 
 # Name of static files folder (after called python manage.py collectstatic)
-STATIC_ROOT = BASE_DIR / "collectedstatic"
+STATIC_ROOT = BASE_DIR.parent / "static"
 
 # Include DJANGO_VITE_ASSETS_PATH into STATICFILES_DIRS to be copied inside
 # when run command python manage.py collectstatic
+# STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH, BASE_DIR / "static"]
 STATICFILES_DIRS = [DJANGO_VITE_ASSETS_PATH]
 
 # Default primary key field type
